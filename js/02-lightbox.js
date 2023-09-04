@@ -5,7 +5,6 @@ const container = document.querySelector(".gallery");
 const markup = createMarkup(galleryItems);
 
 container.insertAdjacentHTML("beforeend", markup);
-container.addEventListener("click", handleImageClick);
 
 function createMarkup(array) {
   return array
@@ -19,16 +18,10 @@ function createMarkup(array) {
     .join("");
 }
 
-function handleImageClick(event) {
-  event.preventDefault();
-  if (event.target.tagName === "IMG") {
-    new SimpleLightbox(".gallery__item a", {
-      captionsData: "alt",
-      captionPosition: "bottom",
-      captionsDelay: 250,
-    });
-  }
-  gallery.open();
-}
+const gallery = new SimpleLightbox(".gallery__item a", {
+  captionsData: "alt",
+  captionPosition: "bottom",
+  captionsDelay: 250,
+});
 
 console.log(galleryItems);

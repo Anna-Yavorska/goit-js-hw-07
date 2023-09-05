@@ -23,6 +23,11 @@ function createMarkup(array) {
 }
 
 function handleImageClick(event) {
+    
+    if (event.target === event.currentTarget) {
+      return;
+    }
+    
     const targetElement = event.target.closest('li');
     const source = targetElement.dataset.preview;
     const image = galleryItems.find(image => image.preview === source);

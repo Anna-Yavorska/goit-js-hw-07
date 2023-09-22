@@ -38,6 +38,15 @@ function handleImageClick(event) {
     </div>
 `);
     instance.show();
+
+    function handleKeyDown(event) {
+        if (event.key === "Escape") {
+          instance.close();
+          document.removeEventListener("keydown", handleKeyDown);
+        };
+    };
+
+    document.addEventListener("keydown",handleKeyDown);
 };
 
 console.log(galleryItems);
